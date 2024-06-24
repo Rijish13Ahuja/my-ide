@@ -26,8 +26,74 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+/* Adjust text color for better readability */
+
+textarea, input, .ed-content, .note-content, .lt-content, .readme-content {
+  color: rgb(var(--foreground-rgb));
+}
+
+textarea:focus, input:focus, .ed-content:focus, .note-content:focus, .lt-content:focus, .readme-content:focus {
+  color: rgb(var(--foreground-rgb));
+}
+
+/* Additional Tailwind CSS Customizations */
+
+/* Typography */
+@layer base {
+  body {
+    @apply font-sans antialiased;
+  }
+}
+
+/* Buttons */
+@layer components {
+  .btn {
+    @apply bg-blue-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+}
+
+/* Form Inputs */
+@layer components {
+  .input {
+    @apply block w-full px-3 py-2 border rounded-md bg-gray-100 text-gray-800 focus:outline-none focus:border-blue-500;
+  }
+}
+
+/* Grid Layouts */
+@layer components {
+  .grid-container {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4;
+  }
+}
+
+/* Flexbox Alignment */
+@layer components {
+  .flex-container {
+    @apply flex flex-col items-center justify-center;
+  }
+}
+
+/* Hover and Focus States */
+@layer components {
+  .hover-effect:hover {
+    @apply bg-gray-200;
+  }
+}
+
+/* Animations */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  @keyframes animate-slide-in {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in {
+    animation: animate-slide-in 0.3s ease-out;
   }
 }
